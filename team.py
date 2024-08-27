@@ -1,25 +1,18 @@
-#챗GPT, 정상 작동, 이해불가
+#팀 결정
+from random import shuffle
 
-import random
+def team(teams: int, *members: str):
+    
+    team_result = {f"team_{team + 1}": [] for team in range(teams)}
 
-# 시작 설정
-team_number = 3  # 팀의 수
-member_list = ["가", "나", "다", "라", "마", "바", "사"]  # 멤버의 목록
-random.shuffle(member_list)  # 멤버 목록을 랜덤으로 섞기
+    members = list(members)
+    shuffle(members)
 
-# 팀의 생성
-teams = {f'team_{i + 1}': [] for i in range(team_number)}
+    for i, member in enumerate(members):
+        team_togo = i % teams
+        team_result[f"team_{team_togo + 1}"].append(member)
 
-# 팀의 멤버 선택
-team_index = 0
-while member_list:  # 멤버 리스트가 비어있지 않은 동안 실행
-    team_name = f'team_{team_index + 1}'
-    selected_member = member_list.pop()  # 멤버 리스트에서 한 명을 꺼내옴
-    teams[team_name].append(selected_member)  # 현재 팀에 멤버 추가
-    team_index = (team_index + 1) % team_number  # 다음 팀으로 순환
+    for team_name, members in team_result.items():
+        print(f"{team_name}: {members}")
 
-# 결과 출력
-for i in range(1, team_number + 1):
-    team_name = f'team_{i}'
-    print(f"팀 {i}: {teams[team_name]}")
-
+team(3, "나", "가", "다", "라")
