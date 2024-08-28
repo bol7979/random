@@ -1,4 +1,4 @@
-#팀 결정
+# 팀 결정
 from random import shuffle
 
 def team(teams: int, *members: str):
@@ -15,4 +15,4 @@ def team(teams: int, *members: str):
     for team_name, members in team_result.items():
         print(f"{team_name}: {members}")
 
-team(3, "나", "가", "다", "라")
+team(3, "철수", "영희", "길동", "흥국", "개똥")

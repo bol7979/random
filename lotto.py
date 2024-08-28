@@ -1,4 +1,4 @@
-#로또 추첨
+# 로또 추첨
 from random import randint
 
 def lotto():
